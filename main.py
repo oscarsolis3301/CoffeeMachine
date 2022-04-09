@@ -1,3 +1,16 @@
+def report(remaining_water, remaining_milk, remaining_coffee, money_total):
+    print(f"Water: {water}ml")
+    print(f"Milk: {milk}ml")
+    print(f"Coffee: {coffee}g")
+    print(f"Money: ${money}")
+
+
+water = 300
+milk = 200
+coffee = 100
+money = 0
+
+
 stopped = False
 while not stopped:
     # TODO 1. Prompt user by asking “What would you like? (espresso/latte/cappuccino):”
@@ -6,11 +19,11 @@ while not stopped:
     if user_input == "off":
         print("Please come again soon.")
         print("Goodbye!")
-
+        stopped = True
+    elif user_input == "report":
+        report(water, milk, coffee, money)
 # TODO 3. Print report.
-def report (water, milk, coffee, money):
-    print(f"Water: {water}ml")
-    print(f"Milk: {milk}")
+
 # TODO 4. Check resources sufficient?
 
 # TODO 5. Process coins.

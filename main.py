@@ -2,6 +2,7 @@ from data import resources, coffee
 
 
 def report(remaining_water, remaining_milk, remaining_coffee, money_total):
+    # Shows the user the amount of resources available
     print(f"Water: {remaining_water}ml")
     print(f"Milk: {remaining_milk}ml")
     print(f"Coffee: {remaining_coffee}g")
@@ -9,6 +10,7 @@ def report(remaining_water, remaining_milk, remaining_coffee, money_total):
 
 
 def check_balance(choice, price):
+    # Checks if the user has enough money to buy the drink
     user_quarters = .25 * float(input(f"How many quarters?: "))
     user_dimes = .1 * float(input(f"How many dimes?: "))
     user_nickles = .05 * float(input(f"How many nickles?: "))
@@ -23,12 +25,14 @@ def check_balance(choice, price):
 
 
 def make_coffee(user_money, choice, price):
+    # If all other functions pass with no issues, then the coffee is made
     change = round(user_money - price, 2)
     print(f"Here is ${change} in change.")
     print(f"Here is your {choice} ☕.Enjoy!")
 
 
 def check_resources(choice):
+    # Checks the resources. Takes in the choice from the user
     if choice in coffee:
         if coffee[choice]["water"] <= resources["water"]:
             if coffee[choice]["milk"] <= resources["milk"]:
@@ -49,6 +53,7 @@ def check_resources(choice):
 
 
 def update_report(choice):
+    # After user gets the drink, updates the report to most up-to-date resources
     resources["water"] -= coffee[choice]["water"]
     resources["milk"] -= coffee[choice]["milk"]
     resources["coffee"] -= coffee[choice]["coffee"]
@@ -57,9 +62,8 @@ def update_report(choice):
 
 stopped = False
 while not stopped:
-    # TODO 1. Prompt user by asking “What would you like? (espresso/latte/cappuccino):”
+    # Main while loop
     coffee_choice = str(input("What would you like? (espresso/latte/cappuccino): "))
-    # TODO 2. Turn off the Coffee Machine by entering “off” to the prompt.
     if coffee_choice == "off":
         print("Please come again soon.")
         print("Goodbye!")
@@ -85,14 +89,4 @@ while not stopped:
         else:
             print(f"Not enough resources to make {coffee_choice}")
     else:
-        coffee_choice = ""
         print("Please enter a proper input.")
-# TODO 3. Print report.
-
-# TODO 4. Check resources sufficient?
-
-# TODO 5. Process coins.
-
-# TODO 6. Check transaction successful?
-
-# TODO 7. Make Coffee.

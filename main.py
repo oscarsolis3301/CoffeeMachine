@@ -36,10 +36,13 @@ def check_resources(choice):
                     update_report(choice)
                     return True
                 else:
+                    print("Sorry there is not enough coffee.")
                     return False
             else:
+                print("Sorry there is not enough milk.")
                 return False
         else:
+            print("Sorry there is not enough water.")
             return False
     else:
         return False
